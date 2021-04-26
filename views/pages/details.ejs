@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+        <div>
+        <img src="<%= book.image_url %> " alt="book">
+        <p> <%= book.title %> </p>
+        <p> <%= book.author %> </p>
+        <p> <%= book.isbn %> </p>
+        <p> <%= book.date %> </p>
+        <p> <%= book.description %> </p>
+    </div>
+    <button id="updateButton">Updathe Book</button>
+    <section id="updateSection"> 
+    <form action="/updateBook/<%= book.id %>?_method=put " method="post">
+        <input type="text" name="title" value="<%= book.title %> ">
+        <input type="text" name="author" value="<%= book.author %> ">
+        <input type="text" name="isbn" value="<%= book.isbn %> ">
+        <input type="text" name="date" value="<%= book.date %> ">
+        <input type="text" name="image_url" value="<%= book.image_url %> ">
+        <input type="text" name="description" value="<%= book.description %> ">
+        <button>Update</button>
+    </form>
+</section>
+<form action="/deleteBook/<%= book.id %>?_method=delete" method="post">
+    <button>Delete book</button>
+</form>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="/js/app.js"></script>
+
+</body>
+</html>

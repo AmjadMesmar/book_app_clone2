@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <form action="/search" method="post">
+    <input type="text" name="book" required placeholder="book title or author">
+   <label ><input type="radio" name="choice" value="intitle" required>Title</label>
+   <label ><input type="radio" name="choice" value="inauthor" required>Author</label>
+   <button>GO</button>
+    
+    </form>
+    
+    <% bookArray.forEach(book =>{%> 
+        <div>
+        <img src="<%= book.image_url %> " alt="book">
+        <p> <%= book.title %> </p>
+        <p> <%= book.author %> </p>
+        <p> <%= book.isbn %> </p>
+        <p> <%= book.date %> </p>
+        <p> <%= book.description %> </p>
+    </div>
+    <form action="/details/<%= book.id %> " method="GET">
+        <button>See book details</button>
+    </form>
+        <% })  %> 
+
+</body>
+</html>

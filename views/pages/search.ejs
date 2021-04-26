@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+
+    <% bookArray.forEach(book =>{%> 
+    <div>
+    <form action="/addBook" method="post">
+    <input type="hidden" name="title" value="<%= book.title %> ">
+    <input type="hidden" name="author" value="<%= book.author %> ">
+    <input type="hidden" name="isbn" value="<%= book.isbn %> ">
+    <input type="hidden" name="date" value="<%= book.date %> ">
+    <input type="hidden" name="image_url" value="<%= book.image_url %> ">
+    <input type="hidden" name="description" value="<%= book.description %> ">
+    <img src="<%= book.image_url %> " alt="book">
+    <p> <%= book.title %> </p>
+    <p> <%= book.author %> </p>
+    <p> <%= book.isbn %> </p>
+    <p> <%= book.date %> </p>
+    <p> <%= book.description %> </p>
+</div>
+<button>Add this book</button>
+</form>
+    <% })  %> 
+    
+</body>
+</html>
